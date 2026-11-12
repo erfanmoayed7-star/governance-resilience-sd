@@ -3,7 +3,8 @@
 Each draw samples the four SC effect sizes. A mechanism is "adverse" when its
 effect is drawn from its adverse range (sign reversed through the existing
 equations), otherwise from its beneficial range. Outcome per draw:
-dRI = RI(Full-SC) - RI(No-SC) at week 52, data-driven exposure, B1-B4 active.
+dRI = RI(Full-SC) - RI(No-SC), data-driven exposure, B1-B4 active, on the
+horizon-mean RI (primary) and the terminal RI at week 52 (secondary).
 
 Experiments
   E1  independent failures, p_adverse = 0.00 ... 0.50
@@ -51,9 +52,10 @@ def _init():
 def _drI(effects):
     p = dict(_P)
     p.update(effects)
-    no = g.run_simulation(p, g.make_no_sc_policy(), "data", exogenous_override=_EXO)[2][-1]["RI"]
-    sc = g.run_simulation(p, g.make_full_sc_policy(), "data", exogenous_override=_EXO)[2][-1]["RI"]
-    return float(sc - no)
+    no = g.run_simulation(p, g.make_no_sc_policy(), "data", exogenous_override=_EXO)[2]
+    sc = g.run_simulation(p, g.make_full_sc_policy(), "data", exogenous_override=_EXO)[2]
+    mean = lambda o: sum(q["RI"] for q in o) / len(o)
+    return float(mean(sc) - mean(no)), float(sc[-1]["RI"] - no[-1]["RI"])
 
 
 def draw_effects(rng, fail_mask, adv):
@@ -93,13 +95,15 @@ def run_condition(pool, label, seed, mask_fn, adv=ADV_BASE):
     rng = np.random.default_rng(seed)
     masks = mask_fn(rng)
     effects = [draw_effects(rng, m, adv) for m in masks]
-    d = np.array(pool.map(_drI, effects, chunksize=10))
+    both = np.array(pool.map(_drI, effects, chunksize=10))
+    d, d_term = both[:, 0], both[:, 1]
     s = stats(d)
+    s["reversal_rate_terminal"] = float(np.mean(d_term < 0))
     s.update({"condition": label, "mean_failed_mechanisms": float(masks.sum(1).mean()),
               "share_draws_ge2_failed": float((masks.sum(1) >= 2).mean())})
     print(f"{label:48s} rev={s['reversal_rate']:6.1%} (SE {s['se']*100:4.1f} pp, "
           f"CI {s['ci_lo']:.1%}-{s['ci_hi']:.1%})  mean dRI={s['mean_dRI']:+.4f}  "
-          f">=2 failed={s['share_draws_ge2_failed']:.0%}", flush=True)
+          f">=2 failed={s['share_draws_ge2_failed']:.0%}  [terminal rev={s['reversal_rate_terminal']:.1%}]", flush=True)
     return s
 
 
@@ -143,7 +147,7 @@ def main():
 
     cols = ["experiment", "condition", "p_adverse", "rho", "k_failed", "failed", "reversal_rate",
             "se", "ci_lo", "ci_hi", "mean_dRI", "p5_dRI", "p95_dRI",
-            "mean_failed_mechanisms", "share_draws_ge2_failed"]
+            "mean_failed_mechanisms", "share_draws_ge2_failed", "reversal_rate_terminal"]
     with open(os.path.join(OUT, "a1_results.csv"), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()

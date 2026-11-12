@@ -1,0 +1,6 @@
+baseline        No-SC    max|dx/dt|=0.00002 (CB)  dRI last 4 wk=+0.0000  converged=True
+baseline        Full-SC  max|dx/dt|=0.00002 (CB)  dRI last 4 wk=+0.0001  converged=True
+synthetic step  No-SC    max|dx/dt|=0.00003 (RC)  dRI last 4 wk=+0.0000  converged=True
+synthetic step  Full-SC  max|dx/dt|=0.00002 (CB)  dRI last 4 wk=+0.0000  converged=True
+data-driven     No-SC    max|dx/dt|=0.06044 (CL)  dRI last 4 wk=-0.0288  converged=False
+data-driven     Full-SC  max|dx/dt|=0.06129 (CL)  dRI last 4 wk=-0.0309  converged=False

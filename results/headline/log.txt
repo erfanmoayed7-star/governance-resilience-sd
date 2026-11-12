@@ -1,29 +1,30 @@
-baseline   RI undisturbed, No-SC                         0.5569
-data       RI shocked, No-SC                             0.4876
-data       RI shocked, Full-SC                           0.5270
-data       Loss vs baseline (index units)                0.0693
-data       Loss as % of baseline                         12.4480
-data       Full-SC gain (index units)                    0.0395
-data       Gain as % of shocked value                    8.0921
-data       Share of loss recovered (%)                   56.9146
-data       Residual gap to baseline (% of loss)          43.0854
-data       dRI SC_DisputeWF alone                        0.0252
-data       dRI SC_Transparency alone                     0.0094
-data       dRI SC_RuleExec alone                         0.0050
-data       dRI SC_AutoVerify alone                       0.0003
-data       Dominance ratio SC_DisputeWF / SC_Transparency 2.6855
-data       Sum of individual effects / joint effect      1.0116
-synthetic  RI shocked, No-SC                             0.4832
-synthetic  RI shocked, Full-SC                           0.5233
-synthetic  Loss vs baseline (index units)                0.0737
-synthetic  Loss as % of baseline                         13.2324
-synthetic  Full-SC gain (index units)                    0.0401
-synthetic  Gain as % of shocked value                    8.2928
-synthetic  Share of loss recovered (%)                   54.3778
-synthetic  Residual gap to baseline (% of loss)          45.6222
-synthetic  dRI SC_DisputeWF alone                        0.0257
-synthetic  dRI SC_Transparency alone                     0.0093
-synthetic  dRI SC_RuleExec alone                         0.0051
-synthetic  dRI SC_AutoVerify alone                       0.0003
-synthetic  Dominance ratio SC_DisputeWF / SC_Transparency 2.7556
-synthetic  Sum of individual effects / joint effect      1.0084
+mean      RI undisturbed, No-SC                            0.5484
+mean      RI shocked, No-SC                                0.4836
+mean      RI shocked, Full-SC                              0.5188
+mean      Loss vs baseline (index units)                   0.0648
+mean      Loss as % of baseline                            11.8239
+mean      Full-SC gain (index units)                       0.0352
+mean      Gain as % of shocked value                       7.2809
+mean      Share of loss recovered (%)                      54.2970
+mean      Residual gap to baseline (% of loss)             45.7030
+mean      dRI SC_DisputeWF alone                           0.0233
+mean      dRI SC_Transparency alone                        0.0077
+mean      dRI SC_RuleExec alone                            0.0042
+mean      dRI SC_AutoVerify alone                          0.0002
+mean      Dominance ratio SC_DisputeWF / SC_Transparency   3.0134
+mean      Sum of individual effects / joint effect         1.0086
+terminal  RI undisturbed, No-SC                            0.5569
+terminal  RI shocked, No-SC                                0.4876
+terminal  RI shocked, Full-SC                              0.5270
+terminal  Loss vs baseline (index units)                   0.0693
+terminal  Loss as % of baseline                            12.4469
+terminal  Full-SC gain (index units)                       0.0395
+terminal  Gain as % of shocked value                       8.0921
+terminal  Share of loss recovered (%)                      56.9203
+terminal  Residual gap to baseline (% of loss)             43.0797
+terminal  dRI SC_DisputeWF alone                           0.0252
+terminal  dRI SC_Transparency alone                        0.0094
+terminal  dRI SC_RuleExec alone                            0.0050
+terminal  dRI SC_AutoVerify alone                          0.0003
+terminal  Dominance ratio SC_DisputeWF / SC_Transparency   2.6855
+terminal  Sum of individual effects / joint effect         1.0116

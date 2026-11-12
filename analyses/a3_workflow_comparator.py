@@ -9,7 +9,7 @@ ledger behind SC_Transparency. Activation levels are assumptions, so a grid
 over the two contested channels is reported alongside the named configurations.
 
 Scenario: data-driven MCE/LTE (the scenario behind the paper's headline RI
-values). Stakeholder loops B1-B4 are active in every arm.
+values). Measure: horizon-mean over 52 weeks (primary). Stakeholder loops B1-B4 are active in every arm.
 """
 import csv
 import os
@@ -41,9 +41,11 @@ def policy(av, re, dw, tp):
 
 
 def terminal(params, pol, exo):
+    """Horizon-mean of each output (primary measure); RI_terminal kept as secondary."""
     t, x, out = g.run_simulation(params, pol, "data", exogenous_override=exo)
-    o = out[-1]
-    return {k: float(o[k]) for k in ("RI", "COI", "AD", "TR", "VB", "AB", "SD")}
+    r = {k: float(np.mean([o[k] for o in out])) for k in ("RI", "COI", "AD", "TR", "VB", "AB", "SD")}
+    r["RI_terminal"] = float(out[-1]["RI"])
+    return r
 
 
 def main():

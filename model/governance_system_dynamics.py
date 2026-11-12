@@ -124,7 +124,7 @@ except ImportError:
 MC_SEED = 42
 MC_N_RUNS = 300
 
-# Literature-bounded SC effect ranges (A): [low, high] for each mechanism
+# Literature-informed, judgment-based SC effect ranges (A): [low, high] for each mechanism
 # SC_AutoVerify reduces VB by 20-50%; SC_RuleExec reduces AB pressure 15-40%;
 # SC_DisputeWF reduces dispute inflow 20-60%; SC_Transparency increases TR 10-30%
 SC_EFFECT_RANGES = {
@@ -203,14 +203,14 @@ def get_default_params() -> Dict:
         'ad_mce': 0.35,          # MCE -> AD (+1)
         'ad_tr': 0.25,           # TR -> AD (-1)
         'ad_decay': 0.18,
-        'ad_sc_dw': 0.6,         # SC_DisputeWF -> AD (-1)
+        'ad_sc_dw': 0.40,        # SC_DisputeWF -> AD (-1); midpoint of MC range (0.20, 0.60)
         
         # --- AB: VB(+), LTE(+), SC_RuleExec(-) ---
         'ab_base_in': 0.08,
         'ab_vb': 0.4,            # VB -> AB (+1)
         'ab_lte': 0.35,           # LTE -> AB (+1)
         'ab_decay': 0.18,
-        'ab_sc_re': 0.5,         # SC_RuleExec -> AB (-1)
+        'ab_sc_re': 0.275,       # SC_RuleExec -> AB (-1); midpoint of MC range (0.15, 0.40)
         
         # --- AL: AB(+) ---
         'al_base': 0.03,
@@ -236,14 +236,14 @@ def get_default_params() -> Dict:
         
         # --- TR: AD(-), SC_Transparency(+) ---
         'tr_base_in': 0.12,
-        'tr_sc_tp': 0.4,         # SC_Transparency -> TR (+1)
+        'tr_sc_tp': 0.20,        # SC_Transparency -> TR (+1); midpoint of MC range (0.10, 0.30)
         'tr_ad': 0.3,            # AD -> TR (-1)
         'tr_decay': 0.05,
         
         # --- VB: SC_AutoVerify(-) only (no exogenous) ---
         'vb_base': 0.04,
         'vb_decay': 0.25,
-        'vb_sc_av': 0.55,         # SC_AutoVerify -> VB (-1)
+        'vb_sc_av': 0.35,        # SC_AutoVerify -> VB (-1); midpoint of MC range (0.20, 0.50)
         
         # --- PF: AD(+), AL(+) ---
         'pf_base': 0.02,
@@ -940,7 +940,7 @@ def run_monte_carlo(
     out_plot: str = "mc_distributions.png",
 ) -> np.ndarray:
     """
-    Monte Carlo over literature-bounded SC effect ranges.
+    Monte Carlo over literature-informed, judgment-based SC effect ranges.
     For each run: sample effect sizes, run No SC vs Digital on same exogenous, record ΔRI, ΔCOI, ΔSD, ΔAD.
     Returns structured array for summary stats; saves mc_results.csv and mc_distributions.png.
     """
@@ -1836,7 +1836,7 @@ def main():
     """Main execution: data-driven MCE/LTE when available, Monte Carlo, validation suite."""
     print("="*70)
     print("DIGITALIZED PROJECT GOVERNANCE UNDER MACROECONOMIC VOLATILITY")
-    print("A+C: Data-driven exogenous (MCE/LTE) + Literature-bounded SC Monte Carlo")
+    print("A+C: Data-driven exogenous (MCE/LTE) + Literature-informed, judgment-based SC Monte Carlo")
     print("="*70)
     
     params = get_default_params()
@@ -1874,7 +1874,7 @@ def main():
         
         # Monte Carlo
         print("\n" + "="*70)
-        print("MONTE CARLO (N=%d, literature-bounded SC effect ranges)" % MC_N_RUNS)
+        print("MONTE CARLO (N=%d, literature-informed, judgment-based SC effect ranges)" % MC_N_RUNS)
         print("="*70)
         mc_array = run_monte_carlo(params, exo_data, t_end_data, n_runs=MC_N_RUNS, seed=MC_SEED, out_csv="mc_results.csv", out_plot="mc_distributions.png")
         stats = mc_summary_stats(mc_array)

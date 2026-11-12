@@ -1,0 +1,317 @@
+======================================================================
+DIGITALIZED PROJECT GOVERNANCE UNDER MACROECONOMIC VOLATILITY
+A+C: Data-driven exogenous (MCE/LTE) + Literature-informed, judgment-based SC Monte Carlo
+======================================================================
+
+======================================================================
+DATA-DRIVEN EXOGENOUS (MCE / LTE)
+======================================================================
+/home/claude/ijpm-governance-sd/model/data_inputs.py:252: RuntimeWarning: Mean of empty slice
+  avg = np.nanmean(arr, axis=0)
+INFO:data_inputs:Lead times loaded from /home/claude/ijpm-governance-sd/data/Lead Times Material Dec 2025.xlsx: 5 canonical materials matched (['lumber', 'concrete', 'glass', 'gypsum', 'rebar_steel'])
+/home/claude/ijpm-governance-sd/model/data_inputs.py:252: RuntimeWarning: Mean of empty slice
+  avg = np.nanmean(arr, axis=0)
+INFO:data_inputs:Lead times loaded from /home/claude/ijpm-governance-sd/data/Lead Times Material Dec 2025.xlsx: 5 canonical materials matched (['lumber', 'concrete', 'glass', 'gypsum', 'rebar_steel'])
+MCE (normalized) min=0.0000, max=1.0000, mean=0.4960
+LTE (normalized) min=0.0000, max=1.0000, mean=0.3058
+Saved: mce_lte_timeseries.png
+
+Running counterfactuals (No SC vs Digital) under data-driven MCE/LTE...
+
+======================================================================
+MONTE CARLO (N=300, literature-informed, judgment-based SC effect ranges)
+======================================================================
+  dRI: mean=0.0389, median=0.0392, 5th=0.0280, 95th=0.0484
+  dCOI: mean=-0.0318, median=-0.0322, 5th=-0.0402, 95th=-0.0226
+  dSD: mean=-0.0170, median=-0.0167, 5th=-0.0234, 95th=-0.0104
+  dAD: mean=-0.0984, median=-0.0986, 5th=-0.1272, 95th=-0.0648
+Saved: mc_summary_table.csv
+Saved: stocks_comparison.png
+Saved: outputs_comparison.png
+
+======================================================================
+RUNNING SCENARIO SIMULATIONS (synthetic)
+======================================================================
+
+Running: baseline (MCE=0, LTE=0)
+
+Running: shocked (MCE & LTE step)
+
+======================================================================
+RUNNING VALIDATION TESTS
+======================================================================
+
+======================================================================
+TEST 1: No-Shock Stability Test
+======================================================================
+
+Final state values:
+  AD: 0.3332 [OK]
+  AB: 0.4131 [OK]
+  AL: 0.3418 [OK]
+  CB: 0.9710 [OK]
+  CL: 0.2347 [OK]
+  SD: 0.2431 [OK]
+  TR: 0.5611 [OK]
+  VB: 0.1527 [OK]
+  PF: 0.4278 [OK]
+
+Final derivatives:
+  dAD/dt: -0.000000 [OK]
+  dAB/dt: 0.000000 [OK]
+  dAL/dt: 0.000000 [OK]
+  dCB/dt: 0.000000 [OK]
+  dCL/dt: 0.000000 [OK]
+  dSD/dt: 0.000000 [OK]
+  dTR/dt: 0.000000 [OK]
+  dVB/dt: 0.000000 [OK]
+  dPF/dt: -0.000000 [OK]
+
+TEST 1 RESULT: PASSED
+Plot saved: test1_stability.png
+
+======================================================================
+TEST 2: Extreme Condition Test (SC=0 vs SC=1)
+======================================================================
+
+Final values comparison (SC=0 vs SC=1):
+--------------------------------------------------
+  AD: SC=0: 0.3632, SC=1: 0.2600, diff: -0.1032 (expected lower) [OK]
+  AB: SC=0: 0.4601, SC=1: 0.3414, diff: -0.1187 (expected lower) [OK]
+  CB: SC=0: 0.9320, SC=1: 0.9402, diff: +0.0082 (expected higher) [OK]
+  TR: SC=0: 0.5507, SC=1: 0.7275, diff: +0.1768 (expected higher) [OK]
+  VB: SC=0: 0.1527, SC=1: 0.1009, diff: -0.0518 (expected lower) [OK]
+  RI: SC=0: 0.4832, SC=1: 0.5233, diff: +0.0401 (expected higher) [OK]
+  SD: SC=0: 0.4575, SC=1: 0.4403, diff: -0.0172 (expected lower) [OK]
+
+TEST 2 RESULT: PASSED
+Plot saved: test2_extreme.png
+
+======================================================================
+TEST 3: Structural Behavior Under Shocks
+======================================================================
+
+Shock amplification (mean deviation from baseline):
+------------------------------------------------------------
+  AD: No SC: 0.0207, With SC: 0.0167, ratio: 0.81 OK (dampened)
+  AB: No SC: 0.0331, With SC: 0.0258, ratio: 0.78 
+  CB: No SC: 0.0262, With SC: 0.0263, ratio: 1.00 
+  TR: No SC: 0.0068, With SC: 0.0064, ratio: 0.94 
+  VB: No SC: 0.0000, With SC: 0.0000, ratio: 1.00 
+  RI: No SC: 0.0507, With SC: 0.0517, ratio: 1.02 
+  SDI: No SC: 0.1487, With SC: 0.1524, ratio: 1.03 WARN
+
+TEST 3 RESULT: PASSED
+Plot saved: test3_structural.png
+
+======================================================================
+TEST 4: Sensitivity Analysis (±30% Key Parameters)
+======================================================================
+
+Final RI and AD (shocked, No SC) under disclosed min/base/max parameter variation:
+(Core structural params use +/-30%; stakeholder-loop and RI/COI weight
+ params use their disclosed sensitivity ranges — see STAKEHOLDER_LOOP_PARAM_RANGES
+ and RI_COI_WEIGHT_RANGES.)
+------------------------------------------------------------
+Parameter                           low       base       high
+------------------------------------------------------------
+ad_decay                     RI=0.448   RI=0.483   RI=0.504
+                             AD=0.498   AD=0.363   AD=0.285
+ab_lte                       RI=0.484   RI=0.483   RI=0.483
+                             AD=0.363   AD=0.363   AD=0.363
+cb_mce                       RI=0.487   RI=0.483   RI=0.479
+                             AD=0.362   AD=0.363   AD=0.364
+cl_lte                       RI=0.496   RI=0.483   RI=0.471
+                             AD=0.364   AD=0.363   AD=0.363
+shock_amplitude_cost         RI=0.489   RI=0.483   RI=0.477
+                             AD=0.354   AD=0.363   AD=0.372
+k_rme                        RI=0.480   RI=0.483   RI=0.486
+                             AD=0.366   AD=0.363   AD=0.361
+c_rme                        RI=0.483   RI=0.483   RI=0.483
+                             AD=0.363   AD=0.363   AD=0.363
+k_pee                        RI=0.477   RI=0.483   RI=0.488
+                             AD=0.365   AD=0.363   AD=0.362
+cb_pee                       RI=0.479   RI=0.483   RI=0.486
+                             AD=0.364   AD=0.363   AD=0.363
+pf_pee                       RI=0.483   RI=0.483   RI=0.483
+                             AD=0.363   AD=0.363   AD=0.363
+c_pee                        RI=0.483   RI=0.483   RI=0.483
+                             AD=0.363   AD=0.363   AD=0.363
+ri_ad                        RI=0.512   RI=0.483   RI=0.454
+                             AD=0.364   AD=0.363   AD=0.362
+ri_cb                        RI=0.372   RI=0.483   RI=0.594
+                             AD=0.360   AD=0.363   AD=0.367
+ri_sd                        RI=0.520   RI=0.483   RI=0.447
+                             AD=0.364   AD=0.363   AD=0.362
+ri_coi                       RI=0.507   RI=0.483   RI=0.459
+                             AD=0.364   AD=0.363   AD=0.363
+coi_ad                       RI=0.488   RI=0.483   RI=0.479
+                             AD=0.363   AD=0.363   AD=0.363
+coi_sd                       RI=0.491   RI=0.483   RI=0.476
+                             AD=0.363   AD=0.363   AD=0.363
+coi_cb                       RI=0.484   RI=0.483   RI=0.482
+                             AD=0.363   AD=0.363   AD=0.363
+rc_it                        RI=0.472   RI=0.483   RI=0.494
+                             AD=0.363   AD=0.363   AD=0.364
+rc_adjust                    RI=0.483   RI=0.483   RI=0.483
+                             AD=0.363   AD=0.363   AD=0.363
+ri_rc                        RI=0.519   RI=0.483   RI=0.447
+                             AD=0.364   AD=0.363   AD=0.362
+Plot saved: test4_sensitivity.png
+Plot saved: test4_tornado.png
+
+TEST 4 RESULT: PASSED
+
+======================================================================
+TEST 5: Stakeholder-Owned Balancing Loops (B_TR, B_CB) Structural Check
+======================================================================
+
+(a) Boundary check: RME(TR=target)=0.0000, PEE(CB=CB_exp)=0.0000  -> PASSED
+
+(b) Dampening check (loops ON vs OFF, shocked, No-SC):
+    Peak AD  — loops ON: 0.3636  |  loops OFF: 0.3754
+    Final RI — loops ON: 0.4832  |  loops OFF: 0.4567
+    -> PASSED
+
+(c) Independence check: stakeholder loops active under both No-SC and Full-SC policy -> PASSED
+
+TEST 5 RESULT: PASSED
+
+======================================================================
+TEST 6: Alternative Structural Specification (Rival Test)
+======================================================================
+
+base spec (governance-mediated only):
+    Final RI, No-SC:   0.4832
+    Final RI, Full-SC: 0.5233
+    SC/stakeholder-loop benefit (Full-SC - No-SC): 0.0401
+
+rival spec (direct MCE->COI, LTE->SD bypass active):
+    Final RI, No-SC:   0.4447
+    Final RI, Full-SC: 0.4831
+    SC/stakeholder-loop benefit (Full-SC - No-SC): 0.0385
+
+Persistence check: benefit under rival spec (0.0385) retains at least 50% of base-spec benefit (0.0401) -> PASSED
+Rival-channel activity check: |RI shift under No-SC| = 0.0385 -> PASSED
+
+TEST 6 RESULT: PASSED
+
+======================================================================
+TEST 7: Partial and Sequenced SC Adoption
+======================================================================
+
+(a) Individual-mechanism panel (No-SC baseline RI = 0.4832):
+    SC_DisputeWF         Delta RI = +0.0257
+    SC_Transparency      Delta RI = +0.0093
+    SC_RuleExec          Delta RI = +0.0051
+    SC_AutoVerify        Delta RI = +0.0003
+    Dominant mechanism: SC_DisputeWF (2.76x the second-place mechanism, SC_Transparency)
+    Dominance check (SC_DisputeWF >2x next) -> PASSED
+
+(b) Sequenced adoption (cumulative, in order: SC_DisputeWF -> SC_Transparency -> SC_RuleExec -> SC_AutoVerify):
+    + SC_DisputeWF         cumulative RI = 0.5089  (step gain = +0.0257)
+    + SC_Transparency      cumulative RI = 0.5177  (step gain = +0.0088)
+    + SC_RuleExec          cumulative RI = 0.5230  (step gain = +0.0053)
+    + SC_AutoVerify        cumulative RI = 0.5233  (step gain = +0.0003)
+    Monotonic improvement check (each addition helps or is neutral) -> PASSED
+
+(c) Combinatorial coverage (all 16 on/off combinations):
+    Best combination: ['sc_rule_exec', 'sc_auto_verify', 'sc_transparency', 'sc_dispute_wf'] (Delta RI = +0.0401)
+    Worst combination: None (Delta RI = +0.0000)
+    Sum of individual mechanism effects: +0.0404
+    Actual Full-SC effect (all 4 combined): +0.0401
+    Interaction effect: -0.0003 (-0.8%) -> sub-additive
+
+TEST 7 RESULT: PASSED
+
+======================================================================
+TEST 8: Alternative RI Weighting Schemes
+======================================================================
+
+Scheme                    RI(No-SC)  RI(Full-SC)  SC benefit  Stakeholder benefit
+----------------------------------------------------------------------------------
+Baseline (disclosed)         0.4832       0.5233     +0.0401              +0.0265
+Equal weights                0.3091       0.3557     +0.0465              +0.0267
+Dispute-dominant             0.3618       0.4184     +0.0566              +0.0230
+Liquidity-dominant           0.7658       0.7960     +0.0302              +0.0328
+Relational-dominant          0.2875       0.3378     +0.0503              +0.0330
+Performance-dominant         0.3596       0.3938     +0.0342              +0.0190
+
+Qualitative consistency check:
+    SC benefit positive under all 6 schemes -> PASSED
+    Stakeholder-loop benefit positive under all 6 schemes -> PASSED
+    SC benefit range across schemes: 0.0302 to 0.0566 (66% of baseline benefit)
+
+TEST 8 RESULT: PASSED
+
+======================================================================
+TEST 9: B4 Performance-Triggered Governance Redesign
+======================================================================
+
+(a) Boundary check: GRE(RI=target)=0.0000 -> PASSED
+
+(b) Dampening check (B4 ON vs OFF, shocked, No-SC):
+    Peak AD  — B4 ON: 0.3636  |  B4 OFF: 0.3685
+    Final RI — B4 ON: 0.4832  |  B4 OFF: 0.4819
+    -> PASSED
+
+(c) Loop closure check: max GRE over simulation = 0.0503 -> PASSED (RI now has an outgoing causal path)
+
+TEST 9 RESULT: PASSED
+
+======================================================================
+VALIDATION TEST SUMMARY
+======================================================================
+  TEST1: PASSED
+  TEST2: PASSED
+  TEST3: PASSED
+  TEST4: PASSED
+  TEST5: PASSED
+  TEST6: PASSED
+  TEST7: PASSED
+  TEST8: PASSED
+  TEST9: PASSED
+
+OVERALL: ALL TESTS PASSED
+
+======================================================================
+SENSITIVITY ANALYSIS - All SC Mechanisms
+======================================================================
+Saved: sensitivity_all_sc.png
+
+======================================================================
+STRUCTURAL COMPLIANCE CHECK
+======================================================================
+
+Exogenous: MCE(t), LTE(t) only. MCE -> AD (+), CB (-); LTE -> AB (+), CL (+). No direct COI/RI.
+COI and RI: purely endogenous. VERIFIED.
+
+======================================================================
+SIMULATION COMPLETE
+======================================================================
+
+Generated files:
+  - test1_stability.png
+  - test2_extreme.png
+  - test3_structural.png
+  - test4_sensitivity.png
+  - test4_tornado.png
+  - outputs_comparison.png
+  - stocks_comparison.png
+  - sensitivity_all_sc.png
+  - mce_lte_timeseries.png
+  - mc_distributions.png
+  - mc_results.csv
+  - mc_summary_table.csv
+
+MCE/LTE normalized ranges used:
+  MCE_norm: min=0.0000, max=1.0000, mean=0.4960
+  LTE_norm: min=0.0000, max=1.0000, mean=0.3058
+
+Monte Carlo summary (mean, median, 5th-95th):
+  dRI: mean=0.0389, median=0.0392, p5=0.0280, p95=0.0484
+  dCOI: mean=-0.0318, median=-0.0322, p5=-0.0402, p95=-0.0226
+  dSD: mean=-0.0170, median=-0.0167, p5=-0.0234, p95=-0.0104
+  dAD: mean=-0.0984, median=-0.0986, p5=-0.1272, p95=-0.0648
+
+All tests passed: True

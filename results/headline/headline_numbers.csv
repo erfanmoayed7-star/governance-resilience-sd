@@ -1,0 +1,30 @@
+scenario,quantity,value
+baseline,"RI undisturbed, No-SC",0.55690
+data,"RI shocked, No-SC",0.48757
+data,"RI shocked, Full-SC",0.52703
+data,Loss vs baseline (index units),0.06932
+data,Loss as % of baseline,12.44804
+data,Full-SC gain (index units),0.03945
+data,Gain as % of shocked value,8.09205
+data,Share of loss recovered (%),56.91461
+data,Residual gap to baseline (% of loss),43.08539
+data,dRI SC_DisputeWF alone,0.02524
+data,dRI SC_Transparency alone,0.00940
+data,dRI SC_RuleExec alone,0.00496
+data,dRI SC_AutoVerify alone,0.00031
+data,Dominance ratio SC_DisputeWF / SC_Transparency,2.68553
+data,Sum of individual effects / joint effect,1.01161
+synthetic,"RI shocked, No-SC",0.48320
+synthetic,"RI shocked, Full-SC",0.52328
+synthetic,Loss vs baseline (index units),0.07369
+synthetic,Loss as % of baseline,13.23237
+synthetic,Full-SC gain (index units),0.04007
+synthetic,Gain as % of shocked value,8.29280
+synthetic,Share of loss recovered (%),54.37776
+synthetic,Residual gap to baseline (% of loss),45.62224
+synthetic,dRI SC_DisputeWF alone,0.02569
+synthetic,dRI SC_Transparency alone,0.00932
+synthetic,dRI SC_RuleExec alone,0.00512
+synthetic,dRI SC_AutoVerify alone,0.00027
+synthetic,Dominance ratio SC_DisputeWF / SC_Transparency,2.75563
+synthetic,Sum of individual effects / joint effect,1.00838

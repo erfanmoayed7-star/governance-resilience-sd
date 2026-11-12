@@ -1,0 +1,20 @@
+  avg = np.nanmean(arr, axis=0)
+INFO:data_inputs:Lead times loaded from /home/claude/ijpm-governance-sd/data/Lead Times Material Dec 2025.xlsx: 5 canonical materials matched (['lumber', 'concrete', 'glass', 'gypsum', 'rebar_steel'])
+T4 VB   Reduction   32.2%  Direct SC_AutoVerify effect
+T4 TR   Increase    30.0%  Direct SC_Transparency effect
+T4 AD   Reduction   26.1%  Direct SC_DisputeWF effect
+T4 AB   Reduction   24.8%  Direct SC_RuleExec effect
+T4 AL   Reduction   17.3%  Downstream
+T4 PF   Reduction   16.6%  Downstream
+T4 COI  Reduction   11.7%  Performance output
+T4 RI   Increase     7.3%  System-level aggregate
+T4 CL   Reduction    5.6%  Downstream
+T4 SD   Reduction    4.2%  Performance output
+T4 CB   Increase     0.7%  Downstream
+T5 dRI: mean +0.0345 median +0.0348 p5 +0.0245 p95 +0.0437
+T5 dCOI: mean -0.0293 median -0.0293 p5 -0.0376 p95 -0.0208
+T5 dSD: mean -0.0151 median -0.0149 p5 -0.0211 p95 -0.0091
+T5 dAD: mean -0.0932 median -0.0933 p5 -0.1222 p95 -0.0606
+SRC: SC_DisputeWF effect +0.894, SC_Transparency effect +0.274, SC_RuleExec effect +0.193, SC_AutoVerify effect +0.013, B2 gain (PEE → PF) -0.002, B1 gain (PEE → CB) -0.027, B4 gain (GRE) -0.032, B3 gain (RME) -0.169 R2=0.996
+Fig2 means {'b': 0.5484244323560722, 'n': 0.48357910208526583, 's': 0.5187881621798388}
+figures written

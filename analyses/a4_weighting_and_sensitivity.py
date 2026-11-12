@@ -10,7 +10,7 @@ minimum and maximum:
   core structural parameters      +/-30% of baseline
   stakeholder loops B1-B3, B4     disclosed theory-informed ranges (about +/-40%)
   RI/COI weights                  disclosed ranges (+/-40%)
-  Relational Climate (rc_*)       disclosed ranges (about +/-40%)
+  Relational Strain (rc_*)        disclosed ranges (about +/-40%)
   SC effect sizes                 Monte Carlo ranges
 
 Scenario: data-driven exposure. Measure: horizon-mean RI (primary); terminal
@@ -78,7 +78,7 @@ def ranges():
     for label, d in [("stakeholder loops B1-B3", g.STAKEHOLDER_LOOP_PARAM_RANGES),
                      ("B4 governance redesign", g.B4_PARAM_RANGES),
                      ("RI/COI weights", g.RI_COI_WEIGHT_RANGES),
-                     ("Relational Climate", g.RELATIONAL_CLIMATE_PARAM_RANGES)]:
+                     ("Relational Strain", g.RELATIONAL_CLIMATE_PARAM_RANGES)]:
         out += [(k, label, p[k], v[1], v[2]) for k, v in d.items()]
     out += [(k, "SC effect size (MC range)", p[k], lo, hi) for k, (lo, hi) in g.SC_EFFECT_RANGES.items()]
     return out

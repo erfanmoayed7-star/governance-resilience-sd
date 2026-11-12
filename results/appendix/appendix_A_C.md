@@ -201,8 +201,8 @@ Table C3. One-at-a-time sensitivity of the smart contract gain (horizon-mean RI;
 | ad_sc_dw | SC effect size (MC range) | 0.2 to 0.6 | +0.0252 | +0.0431 | 50.9 |
 | ri_ad | RI/COI weights | 0.12 to 0.28 | +0.0277 | +0.0427 | 42.6 |
 | ad_decay | core structural (+/-30%) | 0.126 to 0.234 | +0.0401 | +0.0314 | 24.5 |
-| ri_rc | Relational Climate | 0.05 to 0.15 | +0.0318 | +0.0387 | 19.6 |
-| rc_it | Relational Climate | 0.3 to 0.7 | +0.0323 | +0.0381 | 16.3 |
+| ri_rc | Relational Strain | 0.05 to 0.15 | +0.0318 | +0.0387 | 19.6 |
+| rc_it | Relational Strain | 0.3 to 0.7 | +0.0323 | +0.0381 | 16.3 |
 | tr_sc_tp | SC effect size (MC range) | 0.1 to 0.3 | +0.0321 | +0.0376 | 15.5 |
 | ab_sc_re | SC effect size (MC range) | 0.15 to 0.4 | +0.0332 | +0.0374 | 11.8 |
 | k_rme | stakeholder loops B1-B3 | 0.15 to 0.5 | +0.0371 | +0.0336 | 10.1 |
@@ -210,7 +210,7 @@ Table C3. One-at-a-time sensitivity of the smart contract gain (horizon-mean RI;
 | ri_sd | RI/COI weights | 0.12 to 0.28 | +0.0341 | +0.0363 | 6.3 |
 | ri_cb | RI/COI weights | 0.18 to 0.42 | +0.0343 | +0.0362 | 5.5 |
 | coi_ad | RI/COI weights | 0.15 to 0.35 | +0.0342 | +0.0360 | 5.3 |
-| rc_adjust | Relational Climate | 0.1 to 0.25 | +0.0347 | +0.0357 | 2.9 |
+| rc_adjust | Relational Strain | 0.1 to 0.25 | +0.0347 | +0.0357 | 2.9 |
 | k_pee | stakeholder loops B1-B3 | 0.15 to 0.5 | +0.0356 | +0.0348 | 2.2 |
 | k_gre | B4 governance redesign | 0.15 to 0.5 | +0.0355 | +0.0348 | 2.1 |
 | cl_lte | core structural (+/-30%) | 0.245 to 0.455 | +0.0356 | +0.0349 | 2.0 |

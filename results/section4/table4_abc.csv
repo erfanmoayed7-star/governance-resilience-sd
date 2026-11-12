@@ -1,0 +1,12 @@
+variable,type,relative_improvement_pct,note
+VB,Reduction,32.23376,Direct SC_AutoVerify effect
+TR,Increase,30.03419,Direct SC_Transparency effect
+AD,Reduction,26.06964,Direct SC_DisputeWF effect
+AB,Reduction,24.82722,Direct SC_RuleExec effect
+AL,Reduction,17.34033,Downstream
+PF,Reduction,16.55544,Downstream
+COI,Reduction,11.65835,Performance output
+RI,Increase,7.28832,System-level aggregate
+CL,Reduction,5.55306,Downstream
+SD,Reduction,4.22792,Performance output
+CB,Increase,0.66014,Downstream

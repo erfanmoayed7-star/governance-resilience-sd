@@ -1,0 +1,9 @@
+parameter,label,src
+ad_sc_dw,SC_DisputeWF effect,0.89410
+tr_sc_tp,SC_Transparency effect,0.27410
+ab_sc_re,SC_RuleExec effect,0.19268
+vb_sc_av,SC_AutoVerify effect,0.01263
+pf_pee,B2 gain (PEE → PF),-0.00238
+cb_pee,B1 gain (PEE → CB),-0.02666
+k_gre,B4 gain (GRE),-0.03237
+k_rme,B3 gain (RME),-0.16914

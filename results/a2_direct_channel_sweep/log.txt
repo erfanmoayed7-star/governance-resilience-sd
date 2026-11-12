@@ -1,0 +1,24 @@
+
+Direct channel(s): both
+  s=0.000 | terminal loss=0.0693 direct=  0.0% gain=+0.0395 rec= 56.9% | mean     loss=0.0648 direct=  0.0% gain=+0.0352 rec= 54.3%
+  s=0.075 | terminal loss=0.1000 direct= 30.7% gain=+0.0386 rec= 38.6% | mean     loss=0.0811 direct= 20.0% gain=+0.0345 rec= 42.5%
+  s=0.150 | terminal loss=0.1281 direct= 45.9% gain=+0.0379 rec= 29.6% | mean     loss=0.0959 direct= 32.4% gain=+0.0339 rec= 35.4%
+  s=0.225 | terminal loss=0.1538 direct= 54.9% gain=+0.0372 rec= 24.2% | mean     loss=0.1095 direct= 40.8% gain=+0.0334 rec= 30.5%
+  s=0.300 | terminal loss=0.1777 direct= 61.0% gain=+0.0368 rec= 20.7% | mean     loss=0.1222 direct= 46.9% gain=+0.0330 rec= 27.0%
+  s=0.450 | terminal loss=0.1832 direct= 62.2% gain=+0.0338 rec= 18.5% | mean     loss=0.1445 direct= 55.1% gain=+0.0323 rec= 22.4%
+
+Direct channel(s): MCE->COI only
+  s=0.000 | terminal loss=0.0693 direct=  0.0% gain=+0.0395 rec= 56.9% | mean     loss=0.0648 direct=  0.0% gain=+0.0352 rec= 54.3%
+  s=0.075 | terminal loss=0.0693 direct= -0.0% gain=+0.0394 rec= 56.9% | mean     loss=0.0695 direct=  6.7% gain=+0.0348 rec= 50.0%
+  s=0.150 | terminal loss=0.0693 direct= -0.0% gain=+0.0394 rec= 56.9% | mean     loss=0.0735 direct= 11.8% gain=+0.0344 rec= 46.8%
+  s=0.225 | terminal loss=0.0693 direct= -0.0% gain=+0.0394 rec= 56.9% | mean     loss=0.0771 direct= 15.9% gain=+0.0341 rec= 44.3%
+  s=0.300 | terminal loss=0.0693 direct= -0.0% gain=+0.0394 rec= 56.9% | mean     loss=0.0802 direct= 19.2% gain=+0.0339 rec= 42.2%
+  s=0.450 | terminal loss=0.0693 direct= -0.1% gain=+0.0394 rec= 56.9% | mean     loss=0.0856 direct= 24.2% gain=+0.0335 rec= 39.1%
+
+Direct channel(s): LTE->SD only
+  s=0.000 | terminal loss=0.0693 direct=  0.0% gain=+0.0395 rec= 56.9% | mean     loss=0.0648 direct=  0.0% gain=+0.0352 rec= 54.3%
+  s=0.075 | terminal loss=0.1000 direct= 30.7% gain=+0.0386 rec= 38.6% | mean     loss=0.0766 direct= 15.4% gain=+0.0349 rec= 45.5%
+  s=0.150 | terminal loss=0.1281 direct= 45.9% gain=+0.0379 rec= 29.6% | mean     loss=0.0879 direct= 26.2% gain=+0.0346 rec= 39.4%
+  s=0.225 | terminal loss=0.1539 direct= 55.0% gain=+0.0372 rec= 24.2% | mean     loss=0.0986 direct= 34.2% gain=+0.0343 rec= 34.8%
+  s=0.300 | terminal loss=0.1777 direct= 61.0% gain=+0.0368 rec= 20.7% | mean     loss=0.1088 direct= 40.4% gain=+0.0341 rec= 31.4%
+  s=0.450 | terminal loss=0.1832 direct= 62.2% gain=+0.0338 rec= 18.5% | mean     loss=0.1273 direct= 49.1% gain=+0.0336 rec= 26.4%

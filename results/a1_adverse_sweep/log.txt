@@ -1,0 +1,45 @@
+E1 independent failures
+E1 p=0.00                                        rev=  0.0% (SE  0.0 pp, CI 0.0%-1.3%)  mean dRI=+0.0389  >=2 failed=0%
+E1 p=0.05                                        rev=  3.7% (SE  1.1 pp, CI 2.1%-6.4%)  mean dRI=+0.0356  >=2 failed=1%
+E1 p=0.10                                        rev=  6.3% (SE  1.4 pp, CI 4.1%-9.7%)  mean dRI=+0.0317  >=2 failed=8%
+E1 p=0.15                                        rev= 11.0% (SE  1.8 pp, CI 7.9%-15.0%)  mean dRI=+0.0284  >=2 failed=10%
+E1 p=0.20                                        rev= 12.3% (SE  1.9 pp, CI 9.1%-16.5%)  mean dRI=+0.0269  >=2 failed=15%
+E1 p=0.25                                        rev= 18.0% (SE  2.2 pp, CI 14.1%-22.7%)  mean dRI=+0.0232  >=2 failed=23%
+E1 p=0.30                                        rev= 21.7% (SE  2.4 pp, CI 17.4%-26.7%)  mean dRI=+0.0207  >=2 failed=35%
+E1 p=0.35                                        rev= 28.7% (SE  2.6 pp, CI 23.8%-34.0%)  mean dRI=+0.0159  >=2 failed=41%
+E1 p=0.40                                        rev= 38.7% (SE  2.8 pp, CI 33.3%-44.3%)  mean dRI=+0.0100  >=2 failed=55%
+E1 p=0.45                                        rev= 41.0% (SE  2.8 pp, CI 35.6%-46.6%)  mean dRI=+0.0089  >=2 failed=61%
+E1 p=0.50                                        rev= 43.0% (SE  2.9 pp, CI 37.5%-48.7%)  mean dRI=+0.0079  >=2 failed=65%
+E2 correlated failures (shared implementation quality)
+E2 p=0.10 rho=0.25                               rev=  7.7% (SE  1.5 pp, CI 5.2%-11.2%)  mean dRI=+0.0319  >=2 failed=10%
+E2 p=0.10 rho=0.50                               rev=  7.7% (SE  1.5 pp, CI 5.2%-11.2%)  mean dRI=+0.0332  >=2 failed=9%
+E2 p=0.10 rho=0.75                               rev=  8.7% (SE  1.6 pp, CI 6.0%-12.4%)  mean dRI=+0.0322  >=2 failed=12%
+E2 p=0.10 rho=1.00                               rev= 12.0% (SE  1.9 pp, CI 8.8%-16.2%)  mean dRI=+0.0309  >=2 failed=12%
+E2 p=0.25 rho=0.25                               rev= 22.7% (SE  2.4 pp, CI 18.3%-27.7%)  mean dRI=+0.0219  >=2 failed=31%
+E2 p=0.25 rho=0.50                               rev= 25.7% (SE  2.5 pp, CI 21.1%-30.9%)  mean dRI=+0.0197  >=2 failed=32%
+E2 p=0.25 rho=0.75                               rev= 25.3% (SE  2.5 pp, CI 20.7%-30.5%)  mean dRI=+0.0203  >=2 failed=32%
+E2 p=0.25 rho=1.00                               rev= 22.7% (SE  2.4 pp, CI 18.3%-27.7%)  mean dRI=+0.0238  >=2 failed=23%
+E2 p=0.40 rho=0.25                               rev= 37.7% (SE  2.8 pp, CI 32.4%-43.3%)  mean dRI=+0.0105  >=2 failed=55%
+E2 p=0.40 rho=0.50                               rev= 40.3% (SE  2.8 pp, CI 34.9%-46.0%)  mean dRI=+0.0099  >=2 failed=52%
+E2 p=0.40 rho=0.75                               rev= 39.7% (SE  2.8 pp, CI 34.3%-45.3%)  mean dRI=+0.0116  >=2 failed=46%
+E2 p=0.40 rho=1.00                               rev= 40.3% (SE  2.8 pp, CI 34.9%-46.0%)  mean dRI=+0.0111  >=2 failed=40%
+E3 forced joint failure
+E3 exactly 0 of 4 fail                           rev=  0.0% (SE  0.0 pp, CI 0.0%-1.3%)  mean dRI=+0.0388  >=2 failed=0%
+E3 exactly 1 of 4 fail                           rev= 16.7% (SE  2.2 pp, CI 12.9%-21.3%)  mean dRI=+0.0220  >=2 failed=0%
+E3 exactly 2 of 4 fail                           rev= 42.7% (SE  2.9 pp, CI 37.2%-48.3%)  mean dRI=+0.0057  >=2 failed=100%
+E3 exactly 3 of 4 fail                           rev= 69.7% (SE  2.7 pp, CI 64.2%-74.6%)  mean dRI=-0.0095  >=2 failed=100%
+E3 exactly 4 of 4 fail                           rev=100.0% (SE  0.0 pp, CI 98.7%-100.0%)  mean dRI=-0.0275  >=2 failed=100%
+E3 only SC_AutoVerify fails                      rev=  0.0% (SE  0.0 pp, CI 0.0%-1.3%)  mean dRI=+0.0393  >=2 failed=0%
+E3 only SC_RuleExec fails                        rev=  0.0% (SE  0.0 pp, CI 0.0%-1.3%)  mean dRI=+0.0318  >=2 failed=0%
+E3 only SC_DisputeWF fails                       rev= 60.3% (SE  2.8 pp, CI 54.7%-65.7%)  mean dRI=-0.0033  >=2 failed=0%
+E3 only SC_Transparency fails                    rev=  0.0% (SE  0.0 pp, CI 0.0%-1.3%)  mean dRI=+0.0230  >=2 failed=0%
+E3 only SC_AutoVerify+SC_RuleExec fail           rev=  0.0% (SE  0.0 pp, CI 0.0%-1.3%)  mean dRI=+0.0312  >=2 failed=100%
+E3 only SC_AutoVerify+SC_DisputeWF fail          rev= 61.7% (SE  2.8 pp, CI 56.1%-67.0%)  mean dRI=-0.0038  >=2 failed=100%
+E3 only SC_AutoVerify+SC_Transparency fail       rev=  0.0% (SE  0.0 pp, CI 0.0%-1.3%)  mean dRI=+0.0228  >=2 failed=100%
+E3 only SC_RuleExec+SC_DisputeWF fail            rev= 85.3% (SE  2.0 pp, CI 80.9%-88.9%)  mean dRI=-0.0099  >=2 failed=100%
+E3 only SC_RuleExec+SC_Transparency fail         rev=  0.0% (SE  0.0 pp, CI 0.0%-1.3%)  mean dRI=+0.0164  >=2 failed=100%
+E3 only SC_DisputeWF+SC_Transparency fail        rev=100.0% (SE  0.0 pp, CI 98.7%-100.0%)  mean dRI=-0.0207  >=2 failed=100%
+E4 symmetric adverse magnitudes
+E4 symmetric p=0.10                              rev= 11.3% (SE  1.8 pp, CI 8.2%-15.4%)  mean dRI=+0.0275  >=2 failed=5%
+E4 symmetric p=0.25                              rev= 27.7% (SE  2.6 pp, CI 22.9%-33.0%)  mean dRI=+0.0107  >=2 failed=27%
+E4 symmetric p=0.40                              rev= 47.0% (SE  2.9 pp, CI 41.4%-52.7%)  mean dRI=-0.0097  >=2 failed=52%

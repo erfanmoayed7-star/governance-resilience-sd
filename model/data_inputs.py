@@ -42,9 +42,20 @@ logger = logging.getLogger(__name__)
 
 # Default data directory: same folder as this script, or project root
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(_SCRIPT_DIR, "data")
-if not os.path.isdir(DATA_DIR):
-    DATA_DIR = _SCRIPT_DIR
+# Search order: IJPM_DATA_DIR env var, ./data next to this script,
+# ../data (repository layout), then this script's folder.
+_CANDIDATES = [os.environ.get("IJPM_DATA_DIR", ""),
+               os.path.join(_SCRIPT_DIR, "data"),
+               os.path.join(_SCRIPT_DIR, "..", "data"),
+               _SCRIPT_DIR]
+DATA_DIR = next((d for d in _CANDIDATES
+                 if d and os.path.isfile(os.path.join(d, "CBS Office.xlsx"))), None)
+if DATA_DIR is None:
+    raise FileNotFoundError(
+        "Input workbooks not found. Place 'CBS Office.xlsx' and "
+        "'Lead Times Material Dec 2025.xlsx' in data/ or set IJPM_DATA_DIR. "
+        "Results without them use synthetic fallbacks and do not reproduce the paper.")
+DATA_DIR = os.path.abspath(DATA_DIR)
 
 CBS_EXCEL_PATH = os.path.join(DATA_DIR, "CBS Office.xlsx")
 LEAD_TIMES_EXCEL_PATH = os.path.join(DATA_DIR, "Lead Times Material Dec 2025.xlsx")

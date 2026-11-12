@@ -1,0 +1,9 @@
+Joint 8-parameter MC (mean): dRI mean +0.0345, median +0.0348, 5th +0.0245, 95th +0.0437, reversals 0.0%
+Joint 8-parameter MC (terminal): dRI mean +0.0386, median +0.0388, 5th +0.0279, 95th +0.0485, reversals 0.0%
+Convergence of MC mean (horizon-mean dRI) at N = 100/200/300: +0.0333 / +0.0344 / +0.0345
+
+Second rival spec (direct SC -> COI). Base-spec gain: mean +0.0352, terminal +0.0395
+  s=0.01: gain mean +0.0368 (+4.4% vs base), terminal +0.0410 (+3.8%)
+  s=0.02: gain mean +0.0384 (+9.0% vs base), terminal +0.0425 (+7.8%)
+  s=0.03: gain mean +0.0401 (+13.8% vs base), terminal +0.0442 (+11.9%)
+  s=0.05: gain mean +0.0436 (+23.8% vs base), terminal +0.0475 (+20.5%)

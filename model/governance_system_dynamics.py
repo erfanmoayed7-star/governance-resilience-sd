@@ -333,6 +333,9 @@ def get_default_params() -> Dict:
 
         # --- Alternative structural specification (rival test, off by default) ---
         'alt_spec_active': 0.0,     # 0 = base spec (governance-mediated only); 1 = rival spec with direct bypass channels active
+        'alt2_spec_active': 0.0,    # 1 = second rival spec: direct SC -> COI channel (off by default)
+        'sc_coi_direct': 0.03,      # strength of direct SC -> COI reduction under the second rival spec
+        'sc_direct_level': 0.0,     # mean SC activation, set by the caller for the second rival spec
         'coi_mce_direct': 0.15,     # MCE -> COI direct bypass strength (active only when alt_spec_active=1)
         'sd_lte_direct': 0.15,      # LTE -> SD direct bypass strength (active only when alt_spec_active=1)
 
@@ -704,7 +707,13 @@ def compute_outputs(x: np.ndarray, params: Dict, mce: float = 0.0) -> Dict:
                  + params['coi_ad'] * AD                    # AD -> COI (+1)
                  + params['coi_sd'] * SD                    # SD -> COI (+1)
                  + params['coi_cb'] * (1.0 - CB)             # CB -> COI (-1)
-                 + params['alt_spec_active'] * params['coi_mce_direct'] * mce)  # rival spec only
+                 + params['alt_spec_active'] * params['coi_mce_direct'] * mce  # rival spec only
+                 # Second rival spec: smart contracts act directly on COI (e.g. automated
+                 # payment administration) without routing through governance stocks.
+                 # sc_direct_level is the mean activation of the four SC mechanisms and is
+                 # set by the caller, since policy is constant within a run.
+                 - params.get('alt2_spec_active', 0.0) * params.get('sc_coi_direct', 0.0)
+                   * params.get('sc_direct_level', 0.0))
     
     # RI: AD(-1), CB(+1), SD(-1), COI(-1), RC(-1)
     RI = clamp01(params['ri_base'] 

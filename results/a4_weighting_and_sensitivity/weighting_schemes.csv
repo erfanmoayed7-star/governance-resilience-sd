@@ -1,0 +1,7 @@
+scheme,w_ad,w_cb,w_sd,w_coi,w_rc,RI_noSC,RI_fullSC,SC_gain,SC_gain_pct_of_baseline_scheme,share_of_loss_recovered_pct,stakeholder_loop_gain_B1_B4,SC_gain_terminal,dRI_SC_DisputeWF,dRI_SC_Transparency,dRI_SC_RuleExec,dRI_SC_AutoVerify,ranking,dominance_ratio
+Baseline (disclosed),0.20000,0.30000,0.20000,0.15000,0.10000,0.48358,0.51879,0.03521,100.00000,54.29699,0.02875,0.03945,0.02332,0.00774,0.00422,0.00023,SC_DisputeWF > SC_Transparency > SC_RuleExec > SC_AutoVerify,3.01341
+Equal weights,0.19000,0.19000,0.19000,0.19000,0.19000,0.32054,0.36112,0.04058,115.25976,67.65524,0.02821,0.04594,0.02368,0.01292,0.00402,0.00022,SC_DisputeWF > SC_Transparency > SC_RuleExec > SC_AutoVerify,1.83224
+Dispute-dominant,0.40000,0.20000,0.15000,0.10000,0.10000,0.36399,0.41478,0.05079,144.26243,86.23223,0.02648,0.05549,0.03903,0.00912,0.00308,0.00017,SC_DisputeWF > SC_Transparency > SC_RuleExec > SC_AutoVerify,4.27993
+Liquidity-dominant,0.15000,0.50000,0.15000,0.10000,0.05000,0.74244,0.76873,0.02630,74.68330,41.07763,0.03577,0.02983,0.01816,0.00444,0.00375,0.00021,SC_DisputeWF > SC_Transparency > SC_RuleExec > SC_AutoVerify,4.08893
+Relational-dominant,0.15000,0.20000,0.15000,0.15000,0.30000,0.29689,0.33980,0.04292,121.89935,83.40273,0.03287,0.04990,0.02068,0.01895,0.00329,0.00018,SC_DisputeWF > SC_Transparency > SC_RuleExec > SC_AutoVerify,1.09141
+Performance-dominant,0.15000,0.20000,0.30000,0.25000,0.05000,0.37830,0.40877,0.03048,86.56666,40.07023,0.02181,0.03352,0.01991,0.00460,0.00587,0.00033,SC_DisputeWF > SC_RuleExec > SC_Transparency > SC_AutoVerify,3.39331

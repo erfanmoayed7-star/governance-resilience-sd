@@ -1,0 +1,38 @@
+Baseline (disclosed)   w(AD,CB,SD,COI,RC)=(0.20,0.30,0.20,0.15,0.10)  gain=+0.0352 (100.0% of base)  recovered=54.3%  loops=+0.0287  top=SC_DisputeWF x3.01
+Equal weights          w(AD,CB,SD,COI,RC)=(0.19,0.19,0.19,0.19,0.19)  gain=+0.0406 (115.3% of base)  recovered=67.7%  loops=+0.0282  top=SC_DisputeWF x1.83
+Dispute-dominant       w(AD,CB,SD,COI,RC)=(0.40,0.20,0.15,0.10,0.10)  gain=+0.0508 (144.3% of base)  recovered=86.2%  loops=+0.0265  top=SC_DisputeWF x4.28
+Liquidity-dominant     w(AD,CB,SD,COI,RC)=(0.15,0.50,0.15,0.10,0.05)  gain=+0.0263 ( 74.7% of base)  recovered=41.1%  loops=+0.0358  top=SC_DisputeWF x4.09
+Relational-dominant    w(AD,CB,SD,COI,RC)=(0.15,0.20,0.15,0.15,0.30)  gain=+0.0429 (121.9% of base)  recovered=83.4%  loops=+0.0329  top=SC_DisputeWF x1.09
+Performance-dominant   w(AD,CB,SD,COI,RC)=(0.15,0.20,0.30,0.25,0.05)  gain=+0.0305 ( 86.6% of base)  recovered=40.1%  loops=+0.0218  top=SC_DisputeWF x3.39
+SC gain across schemes: +0.0263 to +0.0508; 75% to 144% of the baseline-scheme gain
+
+One-at-a-time sensitivity of the SC gain (baseline +0.0352), largest swings first:
+  ad_sc_dw               SC effect size (MC range)    [0.2, 0.6]  gain +0.0252 .. +0.0431  swing  50.9%  sign kept
+  ri_ad                  RI/COI weights               [0.12, 0.28]  gain +0.0277 .. +0.0427  swing  42.6%  sign kept
+  ad_decay               core structural (+/-30%)     [0.126, 0.234]  gain +0.0401 .. +0.0314  swing  24.5%  sign kept
+  ri_rc                  Relational Climate           [0.05, 0.15]  gain +0.0318 .. +0.0387  swing  19.6%  sign kept
+  rc_it                  Relational Climate           [0.3, 0.7]  gain +0.0323 .. +0.0381  swing  16.3%  sign kept
+  tr_sc_tp               SC effect size (MC range)    [0.1, 0.3]  gain +0.0321 .. +0.0375  swing  15.5%  sign kept
+  ab_sc_re               SC effect size (MC range)    [0.15, 0.4]  gain +0.0332 .. +0.0374  swing  11.8%  sign kept
+  k_rme                  stakeholder loops B1-B3      [0.15, 0.5]  gain +0.0371 .. +0.0336  swing  10.1%  sign kept
+  ri_coi                 RI/COI weights               [0.09, 0.21]  gain +0.0335 .. +0.0369  swing   9.5%  sign kept
+  ri_sd                  RI/COI weights               [0.12, 0.28]  gain +0.0341 .. +0.0363  swing   6.3%  sign kept
+  ri_cb                  RI/COI weights               [0.18, 0.42]  gain +0.0343 .. +0.0362  swing   5.5%  sign kept
+  coi_ad                 RI/COI weights               [0.15, 0.35]  gain +0.0342 .. +0.0360  swing   5.3%  sign kept
+  rc_adjust              Relational Climate           [0.1, 0.25]  gain +0.0346 .. +0.0357  swing   2.9%  sign kept
+  k_pee                  stakeholder loops B1-B3      [0.15, 0.5]  gain +0.0356 .. +0.0348  swing   2.2%  sign kept
+  k_gre                  B4 governance redesign       [0.15, 0.5]  gain +0.0355 .. +0.0348  swing   2.1%  sign kept
+  cl_lte                 core structural (+/-30%)     [0.245, 0.455]  gain +0.0356 .. +0.0349  swing   2.0%  sign kept
+  coi_sd                 RI/COI weights               [0.18, 0.42]  gain +0.0356 .. +0.0349  swing   1.9%  sign kept
+  cb_pee                 stakeholder loops B1-B3      [0.2, 0.4]  gain +0.0355 .. +0.0350  swing   1.3%  sign kept
+  gre_ad                 B4 governance redesign       [0.2, 0.4]  gain +0.0354 .. +0.0350  swing   1.2%  sign kept
+  vb_sc_av               SC effect size (MC range)    [0.2, 0.5]  gain +0.0351 .. +0.0353  swing   0.5%  sign kept
+  coi_cb                 RI/COI weights               [0.15, 0.35]  gain +0.0353 .. +0.0351  swing   0.5%  sign kept
+  cb_mce                 core structural (+/-30%)     [0.21, 0.39]  gain +0.0353 .. +0.0351  swing   0.4%  sign kept
+  ab_lte                 core structural (+/-30%)     [0.245, 0.455]  gain +0.0352 .. +0.0353  swing   0.3%  sign kept
+  pf_pee                 stakeholder loops B1-B3      [0.2, 0.4]  gain +0.0352 .. +0.0352  swing   0.0%  sign kept
+  shock_amplitude_cost   core structural (+/-30%)     [0.21, 0.39]  gain +0.0352 .. +0.0352  swing   0.0%  sign kept
+  c_rme                  stakeholder loops B1-B3      [0.0001, 0.0005]  gain +0.0352 .. +0.0352  swing   0.0%  sign kept
+  c_pee                  stakeholder loops B1-B3      [0.01, 0.05]  gain +0.0352 .. +0.0352  swing   0.0%  sign kept
+  c_gre                  B4 governance redesign       [0.0001, 0.0008]  gain +0.0352 .. +0.0352  swing   0.0%  sign kept
+Sign of the SC gain preserved for all 28 parameters: True

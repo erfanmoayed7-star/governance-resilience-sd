@@ -1,0 +1,12 @@
+No-SC    Trust erosion (R1)           mean -0.0099  terminal -0.0122
+No-SC    Friction-buffer spiral (R2)  mean -0.0046  terminal -0.0059
+No-SC    Liquidity recovery (B1)      mean +0.0208  terminal +0.0193
+No-SC    Friction relief (B2)         mean +0.0001  terminal +0.0001
+No-SC    Trust restoration (B3)       mean +0.0063  terminal +0.0083
+No-SC    Governance redesign (B4)     mean +0.0012  terminal +0.0011
+Full-SC  Trust erosion (R1)           mean -0.0073  terminal -0.0085
+Full-SC  Friction-buffer spiral (R2)  mean -0.0036  terminal -0.0044
+Full-SC  Liquidity recovery (B1)      mean +0.0198  terminal +0.0170
+Full-SC  Friction relief (B2)         mean +0.0001  terminal +0.0001
+Full-SC  Trust restoration (B3)       mean +0.0008  terminal +0.0009
+Full-SC  Governance redesign (B4)     mean +0.0005  terminal +0.0004

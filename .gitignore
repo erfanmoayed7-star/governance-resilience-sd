@@ -1,4 +1,7 @@
 __pycache__/
 *.pyc
 .DS_Store
-*.png
+~$*
+# Licensed source workbooks are not redistributed (see data/README.md)
+data/*.xlsx
+data/*.pdf

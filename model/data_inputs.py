@@ -50,12 +50,18 @@ _CANDIDATES = [os.environ.get("IJPM_DATA_DIR", ""),
                _SCRIPT_DIR]
 DATA_DIR = next((d for d in _CANDIDATES
                  if d and os.path.isfile(os.path.join(d, "CBS Office.xlsx"))), None)
-if DATA_DIR is None:
+# Processed inputs (data/processed/mce_lte_weekly.csv) reproduce the paper exactly
+# without the source workbooks; they are written by analyses/export_processed_inputs.py.
+PROCESSED_PATH = next((os.path.abspath(os.path.join(d, "processed", "mce_lte_weekly.csv"))
+                       for d in _CANDIDATES
+                       if d and os.path.isfile(os.path.join(d, "processed", "mce_lte_weekly.csv"))), None)
+USE_PROCESSED = DATA_DIR is None or os.environ.get("IJPM_USE_PROCESSED") == "1"
+if USE_PROCESSED and PROCESSED_PATH is None:
     raise FileNotFoundError(
-        "Input workbooks not found. Place 'CBS Office.xlsx' and "
-        "'Lead Times Material Dec 2025.xlsx' in data/ or set IJPM_DATA_DIR. "
-        "Results without them use synthetic fallbacks and do not reproduce the paper.")
-DATA_DIR = os.path.abspath(DATA_DIR)
+        "Input data not found. Provide data/processed/mce_lte_weekly.csv, or place "
+        "'CBS Office.xlsx' and 'Lead Times Material Dec 2025.xlsx' in data/ "
+        "(or set IJPM_DATA_DIR). See data/README.md.")
+DATA_DIR = os.path.abspath(DATA_DIR) if DATA_DIR else os.path.dirname(os.path.dirname(PROCESSED_PATH))
 
 CBS_EXCEL_PATH = os.path.join(DATA_DIR, "CBS Office.xlsx")
 LEAD_TIMES_EXCEL_PATH = os.path.join(DATA_DIR, "Lead Times Material Dec 2025.xlsx")
@@ -323,6 +329,21 @@ def load_baseline_durations_from_pdf(path: str = OFFICE_PDF_PATH) -> Optional[Di
     return None
 
 
+def _load_processed(T, scale_stress=1.0):
+    """Read the processed weekly indices and CBS weights (exact values used in the paper)."""
+    import csv
+    rows = list(csv.DictReader(open(PROCESSED_PATH)))
+    if len(rows) != T:
+        raise ValueError(f"Processed inputs have {len(rows)} weeks; {T} requested.")
+    col = lambda k: np.array([float(r[k]) for r in rows])
+    mce_raw, lte_raw = col("mce_raw") * scale_stress, col("lte_raw") * scale_stress
+    norm = lambda x: np.zeros_like(x) if x.max() - x.min() < 1e-10 else (x - x.min()) / (x.max() - x.min())
+    wpath = os.path.join(os.path.dirname(PROCESSED_PATH), "cbs_material_weights.csv")
+    weights = {r["material"]: float(r["weight"]) for r in csv.DictReader(open(wpath))} if os.path.isfile(wpath) else {}
+    logger.info("Using processed inputs: %s", PROCESSED_PATH)
+    return col("week"), mce_raw, norm(mce_raw), lte_raw, norm(lte_raw), weights
+
+
 # =============================================================================
 # BUILD MCE(t) AND LTE(t)
 # =============================================================================
@@ -352,6 +373,9 @@ def build_mce_lte(
     """
     T = t_weeks or DEFAULT_T_WEEKS
     t_axis = np.arange(T, dtype=float)
+
+    if USE_PROCESSED:
+        return _load_processed(T, scale_stress)
 
     weights = load_cbs_material_weights(cbs_path)
     lt_series = load_lead_times_series(lead_times_path)

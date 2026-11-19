@@ -1,0 +1,13 @@
+{
+  "title": "Replication materials: When Does Code Make Project Governance Resilient? A Sociotechnical System Dynamics Study of Smart Contracts under Macroeconomic Volatility",
+  "upload_type": "software",
+  "description": "Python system dynamics model, processed input data and analysis scripts that reproduce every table, figure and appendix of the article (International Journal of Project Management, manuscript JPMA-D-26-00601).",
+  "creators": [
+    {"name": "Moayyed, Erfan", "affiliation": "University of Florida"},
+    {"name": "Castelblanco, Gabriel", "affiliation": "University of Florida"},
+    {"name": "Anumba, Chimay", "affiliation": "University of Florida"}
+  ],
+  "license": "MIT",
+  "keywords": ["system dynamics", "project governance", "smart contracts", "resilience", "construction"],
+  "version": "1.0.0"
+}
